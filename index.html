@@ -67,17 +67,23 @@
         th {
             background: var(--granata);
             color: white;
-            padding: 12px 8px;
+            padding: 10px 8px;
             text-align: center;
             font-size: 0.95rem;
         }
-        td {
-            padding: 11px 8px;
-            border-bottom: 1px solid #eee;
-            font-size: 0.97rem;
-        }
-        td.date, td.time, td.result { 
+        /* Allineamento specifico per le colonne */
+        th.result, td.result { 
             text-align: center; 
+            width: 80px;           /* larghezza fissa per coerenza */
+        }
+        td {
+            padding: 8px 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.96rem;
+        }
+        td.date, td.time { 
+            text-align: center; 
+            width: 70px;
         }
         .incontro { 
             text-align: center; 
@@ -88,14 +94,14 @@
             font-weight: 500;
         }
 
-        /* Tabella Gironi */
+        /* Tabella Gironi iniziali */
         .gironi-table th {
             background: var(--granata);
-            padding: 14px 8px;
+            padding: 12px 8px;
             font-size: 1.05rem;
         }
         .gironi-table td {
-            padding: 12px 8px;
+            padding: 9px 8px;
             vertical-align: top;
             text-align: center;
         }
@@ -115,10 +121,6 @@
             color: #666;
             font-size: 0.9rem;
             margin: 20px 0;
-        }
-        @media (max-width: 480px) {
-            .title h1 { font-size: 1.45rem; }
-            td, th { padding: 10px 6px; font-size: 0.92rem; }
         }
     </style>
 </head>
@@ -168,7 +170,7 @@
         </table>
 
         <!-- PRIMA FASE -->
-        <h2>Calendario 1ª Fase <span class="subtitle">- 2 tempi da 30'</span></h2>
+        <h2>Calendario Prima Fase <span class="subtitle">- 2 tempi da 30'</span></h2>
 
         <div class="girone-header">GIRONE A</div>
         <table>
@@ -177,16 +179,16 @@
                     <th>Data</th>
                     <th>Ora</th>
                     <th>Incontro</th>
-                    <th>Risultato</th>
+                    <th class="result">Risultato</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Vanchiglia - Pro Collegno</td><td class="result"></td></tr>
+                <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Vanchiglia - Pro Collegno</td><td class="result">3-0</td></tr>
                 <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Sisport - Mirafiori</td><td class="result">1-0</td></tr>
                 <tr><td class="date">09/05</td><td class="time">12:50</td><td class="incontro">Sisport - Pro Collegno</td><td class="result">9-1</td></tr>
                 <tr><td class="date">10/05</td><td class="time">14:00</td><td class="incontro">Vanchiglia - Mirafiori</td><td class="result">2-0</td></tr>
-                <tr><td class="date">16/05</td><td class="time">14:00</td><td class="incontro">Pro Collegno - Mirafiori</td><td class="result"></td></tr>
-                <tr><td class="date">16/05</td><td class="time">15:10</td><td class="incontro">Vanchiglia - Sisport</td><td class="result"></td></tr>
+                <tr><td class="date">16/05</td><td class="time">14:00</td><td class="incontro">Pro Collegno - Mirafiori</td><td class="result">-</td></tr>
+                <tr><td class="date">16/05</td><td class="time">15:10</td><td class="incontro">Vanchiglia - Sisport</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
@@ -197,16 +199,16 @@
                     <th>Data</th>
                     <th>Ora</th>
                     <th>Incontro</th>
-                    <th>Risultato</th>
+                    <th class="result">Risultato</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Chisola - Pro Eureka</td><td class="result"></td></tr>
-                <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Virtus Calcio - PSG</td><td class="result"></td></tr>
-                <tr><td class="date">10/05</td><td class="time">10:30</td><td class="incontro">Chisola - Virtus Calcio</td><td class="result"></td></tr>
-                <tr><td class="date">10/05</td><td class="time">11:40</td><td class="incontro">Pro Eureka - PSG</td><td class="result"></td></tr>
-                <tr><td class="date">16/05</td><td class="time">16:20</td><td class="incontro">Chisola - PSG</td><td class="result"></td></tr>
-                <tr><td class="date">16/05</td><td class="time">17:30</td><td class="incontro">Pro Eureka - Virtus Calcio</td><td class="result"></td></tr>
+                <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Chisola - Pro Eureka</td><td class="result">-</td></tr>
+                <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Virtus Calcio - PSG</td><td class="result">-</td></tr>
+                <tr><td class="date">10/05</td><td class="time">10:30</td><td class="incontro">Chisola - Virtus Calcio</td><td class="result">-</td></tr>
+                <tr><td class="date">10/05</td><td class="time">11:40</td><td class="incontro">Pro Eureka - PSG</td><td class="result">-</td></tr>
+                <tr><td class="date">16/05</td><td class="time">16:20</td><td class="incontro">Chisola - PSG</td><td class="result">-</td></tr>
+                <tr><td class="date">16/05</td><td class="time">17:30</td><td class="incontro">Pro Eureka - Virtus Calcio</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
@@ -217,16 +219,16 @@
                     <th>Data</th>
                     <th>Ora</th>
                     <th>Incontro</th>
-                    <th>Risultato</th>
+                    <th class="result">Risultato</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result"></td></tr>
-                <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result"></td></tr>
-                <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result"></td></tr>
-                <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result"></td></tr>
-                <tr><td class="date">16/05</td><td class="time">18:00</td><td class="incontro">Volpiano - Cenisia</td><td class="result"></td></tr>
-                <tr><td class="date">16/05</td><td class="time">19:10</td><td class="incontro">CBS - Borgaro</td><td class="result"></td></tr>
+                <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result">1-1</td></tr>
+                <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result">3-2</td></tr>
+                <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result">-</td></tr>
+                <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result">-</td></tr>
+                <tr><td class="date">16/05</td><td class="time">18:00</td><td class="incontro">Volpiano - Cenisia</td><td class="result">-</td></tr>
+                <tr><td class="date">16/05</td><td class="time">19:10</td><td class="incontro">CBS - Borgaro</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
@@ -248,12 +250,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">1A - 1C</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Pro Vercelli - 1A</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">1C - Torino</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - 1A</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">1C - Pro Vercelli</td><td class="result"></td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">1A - 1C</td><td class="result">3-1</td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">4-2</td></tr>
+                <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Pro Vercelli - 1A</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">1C - Torino</td><td class="result">--</td></tr>
+                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - 1A</td><td class="result">--</td></tr>
+                <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">1C - Pro Vercelli</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
@@ -268,12 +270,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - Miglior 2°</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Juventus - 1B</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Juventus - Bra</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">Miglior 2° - 1B</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">1B - Bra</td><td class="result"></td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">Miglior 2° - Juventus</td><td class="result"></td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - Miglior 2°</td><td class="result">3-2</td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Juventus - 1B</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">Miglior 2° - 1B</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">1B - Bra</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">Miglior 2° - Juventus</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
@@ -290,14 +292,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="partita">Gara 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° D - 4° E</td><td class="result"></td></tr>
-                <tr><td class="partita">Gara 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° E - 4° D</td><td class="result"></td></tr>
-                <tr><td class="partita">Gara 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° D - 2° E</td><td class="result"></td></tr>
-                <tr><td class="partita">Gara 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° E - 2° D</td><td class="result"></td></tr>
-                <tr><td class="partita">Finale 7°- 8° Posto</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Perdente Gara 1 - Perdente Gara 2</td><td class="result"></td></tr>
-                <tr><td class="partita">Finale 5°- 6° Posto</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Vincente Gara 1 - Vincente Gara 2</td><td class="result"></td></tr>
-                <tr><td class="partita">Finale 3°- 4° Posto</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Perdente Gara 3 - Perdente Gara 4</td><td class="result"></td></tr>
-                <tr><td class="partita">Finale 1°- 2° Posto</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Vincente Gara 3 - Vincente Gara 4</td><td class="result"></td></tr>
+                <tr><td class="partita">Gara 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° D - 4° E</td><td class="result">5-2</td></tr>
+                <tr><td class="partita">Gara 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° E - 4° D</td><td class="result">6-2</td></tr>
+                <tr><td class="partita">Gara 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° D - 2° E</td><td class="result">-</td></tr>
+                <tr><td class="partita">Gara 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° E - 2° D</td><td class="result">-</td></tr>
+                <tr><td class="partita">Finale 7°- 8° Posto</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Perdente Gara 1 - Perdente Gara 2</td><td class="result">2-0</td></tr>
+                <tr><td class="partita">Finale 5°- 6° Posto</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Vincente Gara 1 - Vincente Gara 2</td><td class="result">-</td></tr>
+                <tr><td class="partita">Finale 3°- 4° Posto</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Perdente Gara 3 - Perdente Gara 4</td><td class="result">-</td></tr>
+                <tr><td class="partita">Finale 1°- 2° Posto</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Vincente Gara 3 - Vincente Gara 4</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
