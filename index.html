@@ -59,6 +59,7 @@
     }
     .incontro { font-weight: 500; text-align: center; }
     td.date, td.time { width: 58px; text-align: center; }
+    td.time-only { width: 58px; text-align: center; }
     td.result { width: 70px; text-align: center; }
 
     .gironi-table th { padding: 12px 8px; font-size: 1.05rem; }
@@ -71,7 +72,16 @@
         padding: 9px 12px;
         margin-top: 8px;
         border-radius: 8px 8px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+    .girone-header .girone-data {
+        font-weight: normal;
+        font-size: 0.88rem;
+        color: #555;
+    }
+
     .meta { text-align: center; color: #666; margin: 20px 0; font-size: 0.9rem; line-height: 1.4; }
 
     .footer {
@@ -144,8 +154,8 @@
         <tbody>
             <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result">0-1</td></tr>
             <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result">3-2</td></tr>
-            <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result">3-0</td></tr>
-            <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result">2-4</td></tr>
+            <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result">-</td></tr>
+            <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result">-</td></tr>
             <tr><td class="date">16/05</td><td class="time">18:00</td><td class="incontro">Volpiano - Cenisia</td><td class="result">-</td></tr>
             <tr><td class="date">16/05</td><td class="time">19:10</td><td class="incontro">CBS - Borgaro</td><td class="result">-</td></tr>
         </tbody>
@@ -158,25 +168,33 @@
     <!-- SECONDA FASE -->
     <h2>Calendario 2ª Fase <span class="subtitle">- tempo unico da 25'</span></h2>
 
-    <div class="girone-header">GIRONE D</div>
+    <div class="girone-header">
+        GIRONE D
+        <span class="girone-data">17 Maggio</span>
+    </div>
     <table>
-        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <thead><tr><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
         <tbody id="bodyD"></tbody>
     </table>
 
-    <div class="girone-header">GIRONE E</div>
+    <div class="girone-header">
+        GIRONE E
+        <span class="girone-data">17 Maggio</span>
+    </div>
     <table>
-        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <thead><tr><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
         <tbody id="bodyE"></tbody>
     </table>
 
     <!-- FASE FINALE -->
-    <h2>Calendario Fase Finale <span class="subtitle">- tempo unico da 25'</span></h2>
+    <h2 style="display:flex; justify-content:space-between; align-items:center; padding-right:12px;">
+    <span>Fase Finale <span class="subtitle">- tempo unico da 25'</span></span>
+    <span style="font-size:0.88rem; color:#555; font-weight:normal;">17 Maggio</span>
+	</h2>
     <table>
         <thead>
             <tr>
-                <th style="text-align: left;">Partita</th>
-                <th>Data</th>
+                <th style="text-align: left;">Match</th>
                 <th>Ora</th>
                 <th>Incontro</th>
                 <th class="result">Risultato</th>
@@ -257,10 +275,8 @@ function ordinaClassifica(squadre, partite) {
     const classifica = calcolaClassificaGruppo(squadre, partite);
 
     classifica.sort((a, b) => {
-        // 1. Punti
         if (b.punti !== a.punti) return b.punti - a.punti;
 
-        // 2. Scontro diretto (solo se sono esattamente in 2 a pari punti)
         const pariPunti = classifica.filter(t => t.punti === a.punti).map(t => t.nome);
         if (pariPunti.length === 2) {
             const partiteDirette = partite.filter(p =>
@@ -272,12 +288,10 @@ function ordinaClassifica(squadre, partite) {
             if (mb.punti !== ma.punti) return mb.punti - ma.punti;
         }
 
-        // 3. Differenza reti
         const drA = a.gf - a.gs;
         const drB = b.gf - b.gs;
         if (drB !== drA) return drB - drA;
 
-        // 4. Gol fatti
         return b.gf - a.gf;
     });
 
@@ -296,13 +310,14 @@ function trovaMigliorSecondo(clA, clB, clC) {
     return secondi[0].nome;
 }
 
-// Legge la classifica del Girone D o E direttamente dalle righe HTML già popolate
+// Legge risultati e classifica dal bodyId (Girone D o E già popolato via JS)
+// Le celle sono: 0=Ora, 1=Incontro, 2=Risultato  (senza colonna Data)
 function raccogliClassificaGirone(bodyId, squadre) {
     const partite = [];
     document.querySelectorAll(`#${bodyId} tr`).forEach(row => {
-        const resultStr = row.cells[3].textContent.trim();
+        const resultStr = row.cells[2].textContent.trim();
         const result = parseResult(resultStr);
-        const text = row.cells[2].textContent.trim();
+        const text = row.cells[1].textContent.trim();
         const parts = text.split(' - ');
         if (parts.length === 2) {
             partite.push({
@@ -313,7 +328,6 @@ function raccogliClassificaGirone(bodyId, squadre) {
         }
     });
 
-    // Verifica che tutte le partite siano giocate
     if (!tutteGiocate(partite)) return null;
 
     return ordinaClassifica(squadre, partite);
@@ -346,65 +360,59 @@ function calcolaClassifiche() {
         miglior2 = trovaMigliorSecondo(clA, clB, clC);
     }
 
-    // Girone D – sempre visibile
+    // Girone D – senza colonna Data (0=Ora, 1=Incontro, 2=Risultato)
     document.getElementById('bodyD').innerHTML = `
-        <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">${unoA} - ${unoC}</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Pro Vercelli - ${unoA}</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">${unoC} - Torino</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - ${unoA}</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">${unoC} - Pro Vercelli</td><td class="result">-</td></tr>
+        <tr><td class="time-only">10:00</td><td class="incontro">${unoA} - ${unoC}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">-</td></tr>
+        <tr><td class="time-only">11:00</td><td class="incontro">Pro Vercelli - ${unoA}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">11:30</td><td class="incontro">${unoC} - Torino</td><td class="result">-</td></tr>
+        <tr><td class="time-only">12:00</td><td class="incontro">Torino - ${unoA}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">12:30</td><td class="incontro">${unoC} - Pro Vercelli</td><td class="result">-</td></tr>
     `;
 
-    // Girone E – sempre visibile
+    // Girone E – senza colonna Data
     document.getElementById('bodyE').innerHTML = `
-        <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - ${miglior2}</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Juventus - ${unoB}</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">${miglior2} - ${unoB}</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">${unoB} - Bra</td><td class="result">-</td></tr>
-        <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">${miglior2} - Juventus</td><td class="result">-</td></tr>
+        <tr><td class="time-only">10:00</td><td class="incontro">Bra - ${miglior2}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">10:30</td><td class="incontro">Juventus - ${unoB}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
+        <tr><td class="time-only">11:30</td><td class="incontro">${miglior2} - ${unoB}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">12:00</td><td class="incontro">${unoB} - Bra</td><td class="result">-</td></tr>
+        <tr><td class="time-only">12:30</td><td class="incontro">${miglior2} - Juventus</td><td class="result">-</td></tr>
     `;
 
     // ===== FASE FINALE =====
-    // Le squadre del Girone D ed E sono quelle effettivamente presenti nelle righe
-    // (che possono essere nomi reali o segnaposto, a seconda di quando siamo arrivati)
     const squadreD = ["Pro Vercelli", "Torino", unoA, unoC];
     const squadreE = ["Bra", "Juventus", unoB, miglior2];
 
     const clD = raccogliClassificaGirone("bodyD", squadreD);
     const clE = raccogliClassificaGirone("bodyE", squadreE);
 
-    // Segnaposto Fase Finale
     let d1 = "1° D", d2 = "2° D", d3 = "3° D", d4 = "4° D";
     let e1 = "1° E", e2 = "2° E", e3 = "3° E", e4 = "4° E";
 
     if (clD) {
-        d1 = clD[0].nome;
-        d2 = clD[1].nome;
-        d3 = clD[2].nome;
-        d4 = clD[3].nome;
+        d1 = clD[0].nome; d2 = clD[1].nome;
+        d3 = clD[2].nome; d4 = clD[3].nome;
     }
     if (clE) {
-        e1 = clE[0].nome;
-        e2 = clE[1].nome;
-        e3 = clE[2].nome;
-        e4 = clE[3].nome;
+        e1 = clE[0].nome; e2 = clE[1].nome;
+        e3 = clE[2].nome; e4 = clE[3].nome;
     }
 
-    // Fase Finale – sempre visibile, nomi reali appena i gironi D ed E sono completi
+    // Fase Finale – senza colonna Data (0=Match, 1=Ora, 2=Incontro, 3=Risultato)
     document.getElementById('bodyFinale').innerHTML = `
-        <tr><td class="partita">Gara 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">${d3} - ${e4}</td><td class="result">-</td></tr>
-        <tr><td class="partita">Gara 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">${e3} - ${d4}</td><td class="result">-</td></tr>
-        <tr><td class="partita">Gara 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">${d1} - ${e2}</td><td class="result">-</td></tr>
-        <tr><td class="partita">Gara 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">${e1} - ${d2}</td><td class="result">-</td></tr>
-        <tr><td class="partita">7°- 8°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">P Gar1 - P Gar2</td><td class="result">-</td></tr>
-        <tr><td class="partita">5°- 6°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">V Ga1 - V Ga2</td><td class="result">-</td></tr>
-        <tr><td class="partita">3°- 4°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">P Ga3 - P Ga4</td><td class="result">-</td></tr>
-        <tr><td class="partita">1°- 2°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">V Ga3 - V Ga4</td><td class="result">-</td></tr>
+        <tr><td class="partita">Gara 1</td><td class="time-only">15:00</td><td class="incontro">${d3} - ${e4}</td><td class="result">-</td></tr>
+        <tr><td class="partita">Gara 2</td><td class="time-only">15:00</td><td class="incontro">${e3} - ${d4}</td><td class="result">-</td></tr>
+        <tr><td class="partita">Gara 3</td><td class="time-only">15:30</td><td class="incontro">${d1} - ${e2}</td><td class="result">-</td></tr>
+        <tr><td class="partita">Gara 4</td><td class="time-only">15:30</td><td class="incontro">${e1} - ${d2}</td><td class="result">-</td></tr>
+        <tr><td class="partita">7°- 8°</td><td class="time-only">16:00</td><td class="incontro">Perd Gara1 - Perd Gara2</td><td class="result">-</td></tr>
+        <tr><td class="partita">5°- 6°</td><td class="time-only">16:00</td><td class="incontro">Vinc Gara1 - Vinc Gara2</td><td class="result">-</td></tr>
+        <tr><td class="partita">3°- 4°</td><td class="time-only">16:30</td><td class="incontro">Perd Gara3 - Perd Gara4</td><td class="result">-</td></tr>
+        <tr><td class="partita">1°- 2°</td><td class="time-only">16:30</td><td class="incontro">Vinc Gara3 - Vinc Gara4</td><td class="result">-</td></tr>
     `;
 }
 
-window.onload = calcolaClassifiche;</script>
+window.onload = calcolaClassifiche;
+</script>
 </body>
 </html>
