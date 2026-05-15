@@ -5,16 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8° Memorial Matteo Dalla Riva U12</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
-   
+  
 <style>
-    :root {
-        --granata: #9B1C2C;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    :root { --granata: #9B1C2C; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
         font-family: 'Segoe UI', system-ui, sans-serif;
         background: #f5f5f5;
@@ -28,21 +22,11 @@
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     .title { text-align: center; }
-    .title h1 {
-        font-size: 1.55rem;
-        line-height: 1.1;
-        margin-bottom: 8px;
-    }
-    .sub-main {
-        font-size: 1.05rem;
-        color: #f0f0f0;
-        font-weight: 500;
-    }
-    .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 16px 10px;
-    }
+    .title h1 { font-size: 1.55rem; line-height: 1.1; margin-bottom: 8px; }
+    .sub-main { font-size: 1.05rem; color: #f0f0f0; font-weight: 500; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 16px 10px; }
+
     h2 {
         color: var(--granata);
         margin: 26px 0 10px;
@@ -50,37 +34,8 @@
         border-left: 5px solid var(--granata);
         padding-left: 12px;
     }
-    h2 .subtitle {
-        font-size: 0.72rem;
-        font-weight: normal;
-        opacity: 0.9;
-    }
+    h2 .subtitle { font-size: 0.72rem; font-weight: normal; opacity: 0.9; }
 
-    /* ====================== TABELLA GIRONI ====================== */
-    .gironi-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
-    .gironi-table th {
-        background: var(--granata);
-        color: white;
-        padding: 12px 8px;
-        text-align: center;
-        font-size: 1.05rem;
-    }
-    .gironi-table td {
-        padding: 9px 8px;
-        text-align: center;
-        vertical-align: top;
-        font-size: 0.97rem;
-    }
-
-    /* ====================== TABELLE CALENDARIO ====================== */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -93,42 +48,22 @@
     th {
         background: var(--granata);
         color: white;
-        padding: 9px 6px;
+        padding: 10px 6px;
         text-align: center;
         font-size: 0.93rem;
     }
     td {
-        padding: 6.5px 5px;
+        padding: 7px 5px;
         border-bottom: 1px solid #eee;
         font-size: 0.94rem;
     }
-    td.date, th.date {
-        text-align: center;
-        width: 58px;
-        padding: 6.5px 4px;
-    }
-    td.time, th.time {
-        text-align: center;
-        width: 52px;
-        padding: 6.5px 4px;
-    }
-    td.result, th.result {
-        text-align: center;
-        width: 68px;
-        padding: 6.5px 4px;
-    }
-    .incontro {
-        text-align: center;
-        font-weight: 500;
-        padding: 6.5px 6px;
-    }
-    td.partita {
-        text-align: left;
-        font-weight: 500;
-    }
-    tr:nth-child(even) {
-        background: #f9f9f9;
-    }
+    .incontro { font-weight: 500; text-align: center; }
+    td.date, td.time { width: 58px; text-align: center; }
+    td.result { width: 75px; text-align: center; }
+
+    .gironi-table th { padding: 12px 8px; font-size: 1.05rem; }
+    .gironi-table td { padding: 9px 8px; text-align: center; }
+
     .girone-header {
         background: #f0f0f0;
         font-weight: bold;
@@ -137,14 +72,8 @@
         margin-top: 8px;
         border-radius: 8px 8px 0 0;
     }
-    .meta {
-        text-align: center;
-        color: #666;
-        font-size: 0.9rem;
-        margin: 20px 0;
-    }
+    .meta { text-align: center; color: #666; margin: 20px 0; font-size: 0.9rem; line-height: 1.4; }
 
-    /* ====================== FOOTER ====================== */
     .footer {
         margin-top: 40px;
         padding: 20px 10px 25px;
@@ -154,212 +83,328 @@
         color: #555;
         line-height: 1.4;
     }
-
-    /* ==================== MOBILE ==================== */
-    @media (max-width: 480px) {
-        td, th {
-            padding: 5.5px 4px;
-            font-size: 0.91rem;
-        }
-        .incontro {
-            white-space: normal;
-            line-height: 1.22;
-            font-size: 0.90rem;
-        }
-        td.date, td.time { width: 52px; }
-        td.result { width: 62px; }
-        .footer { font-size: 0.82rem; padding: 18px 8px; }
-    }
 </style>
 </head>
 <body>
 
-    <!-- TOPBAR -->
-    <div class="topbar">
-        <div class="title">
-            <h1>8° Memorial Matteo Dalla Riva</h1>
-            <p class="sub-main">UNDER 12 (2014)</p>
-        </div>
+<div class="topbar">
+    <div class="title">
+        <h1>8° Memorial Matteo Dalla Riva</h1>
+        <p class="sub-main">UNDER 12 (2014)</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- TABELLA GIRONI -->
+    <table class="gironi-table">
+        <thead><tr><th>GIRONE A</th><th>GIRONE B</th><th>GIRONE C</th></tr></thead>
+        <tbody>
+            <tr><td>Vanchiglia</td><td>Chisola</td><td>CBS</td></tr>
+            <tr><td>Pro Collegno</td><td>Virtus Calcio</td><td>Cenisia</td></tr>
+            <tr><td>Mirafiori</td><td>PSG</td><td>Borgaro</td></tr>
+            <tr><td>Sisport</td><td>Pro Eureka</td><td>Volpiano</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Calendario Prima Fase <span class="subtitle">- 2 tempi da 30'</span></h2>
+
+    <!-- GIRONE A -->
+    <div class="girone-header">GIRONE A</div>
+    <table id="gironeA">
+        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <tbody>
+            <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Vanchiglia - Pro Collegno</td><td class="result">3-0</td></tr>
+            <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Sisport - Mirafiori</td><td class="result">1-0</td></tr>
+            <tr><td class="date">09/05</td><td class="time">12:50</td><td class="incontro">Sisport - Pro Collegno</td><td class="result">9-1</td></tr>
+            <tr><td class="date">10/05</td><td class="time">14:00</td><td class="incontro">Vanchiglia - Mirafiori</td><td class="result">2-0</td></tr>
+            <tr><td class="date">16/05</td><td class="time">14:00</td><td class="incontro">Pro Collegno - Mirafiori</td><td class="result">-</td></tr>
+            <tr><td class="date">16/05</td><td class="time">15:10</td><td class="incontro">Vanchiglia - Sisport</td><td class="result">-</td></tr>
+        </tbody>
+    </table>
+
+    <!-- GIRONE B -->
+    <div class="girone-header">GIRONE B</div>
+    <table id="gironeB">
+        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <tbody>
+            <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Chisola - Pro Eureka</td><td class="result">2-1</td></tr>
+            <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Virtus Calcio - PSG</td><td class="result">3-3</td></tr>
+            <tr><td class="date">10/05</td><td class="time">10:30</td><td class="incontro">Chisola - Virtus Calcio</td><td class="result">2-0</td></tr>
+            <tr><td class="date">10/05</td><td class="time">11:40</td><td class="incontro">Pro Eureka - PSG</td><td class="result">4-1</td></tr>
+            <tr><td class="date">16/05</td><td class="time">16:20</td><td class="incontro">Chisola - PSG</td><td class="result">-</td></tr>
+            <tr><td class="date">16/05</td><td class="time">17:30</td><td class="incontro">Pro Eureka - Virtus Calcio</td><td class="result">-</td></tr>
+        </tbody>
+    </table>
+
+    <!-- GIRONE C -->
+    <div class="girone-header">GIRONE C</div>
+    <table id="gironeC">
+        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <tbody>
+            <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result">0-1</td></tr>
+            <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result">3-2</td></tr>
+            <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result">-</td></tr>
+            <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result">-</td></tr>
+            <tr><td class="date">16/05</td><td class="time">18:00</td><td class="incontro">Volpiano - Cenisia</td><td class="result">-</td></tr>
+            <tr><td class="date">16/05</td><td class="time">19:10</td><td class="incontro">CBS - Borgaro</td><td class="result">-</td></tr>
+        </tbody>
+    </table>
+
+    <div class="meta">
+        <strong>Legenda 2ª Fase:</strong> 1A, 1B, 1C = primi classificati • MIGLIOR 2 = migliore secondo classificato
     </div>
 
-    <div class="container">
-       
-        <!-- TABELLA GIRONI -->
-        <table class="gironi-table">
-            <thead>
-                <tr>
-                    <th>GIRONE A</th>
-                    <th>GIRONE B</th>
-                    <th>GIRONE C</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Vanchiglia</td>
-                    <td>Chisola</td>
-                    <td>CBS</td>
-                </tr>
-                <tr>
-                    <td>Pro Collegno</td>
-                    <td>Virtus Calcio</td>
-                    <td>Cenisia</td>
-                </tr>
-                <tr>
-                    <td>Mirafiori</td>
-                    <td>PSG</td>
-                    <td>Borgaro</td>
-                </tr>
-                <tr>
-                    <td>Sisport</td>
-                    <td>Pro Eureka</td>
-                    <td>Volpiano</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- SECONDA FASE -->
+    <h2>Calendario 2ª Fase <span class="subtitle">- tempo unico da 25'</span></h2>
 
-        <!-- PRIMA FASE -->
-        <h2>Calendario Prima Fase <span class="subtitle">- 2 tempi da 30'</span></h2>
+    <div class="girone-header">GIRONE D</div>
+    <table>
+        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <tbody id="bodyD"></tbody>
+    </table>
 
-        <div class="girone-header">GIRONE A</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Incontro</th>
-                    <th class="result">Risultato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Vanchiglia - Pro Collegno</td><td class="result">3-0</td></tr>
-                <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Sisport - Mirafiori</td><td class="result">1-0</td></tr>
-                <tr><td class="date">09/05</td><td class="time">12:50</td><td class="incontro">Sisport - Pro Collegno</td><td class="result">9-1</td></tr>
-                <tr><td class="date">10/05</td><td class="time">14:00</td><td class="incontro">Vanchiglia - Mirafiori</td><td class="result">2-0</td></tr>
-                <tr><td class="date">16/05</td><td class="time">14:00</td><td class="incontro">Pro Collegno - Mirafiori</td><td class="result">-</td></tr>
-                <tr><td class="date">16/05</td><td class="time">15:10</td><td class="incontro">Vanchiglia - Sisport</td><td class="result">-</td></tr>
-            </tbody>
-        </table>
+    <div class="girone-header">GIRONE E</div>
+    <table>
+        <thead><tr><th>Data</th><th>Ora</th><th>Incontro</th><th class="result">Risultato</th></tr></thead>
+        <tbody id="bodyE"></tbody>
+    </table>
 
-        <div class="girone-header">GIRONE B</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Incontro</th>
-                    <th class="result">Risultato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="date">09/05</td><td class="time">10:30</td><td class="incontro">Chisola - Pro Eureka</td><td class="result">-</td></tr>
-                <tr><td class="date">09/05</td><td class="time">11:40</td><td class="incontro">Virtus Calcio - PSG</td><td class="result">-</td></tr>
-                <tr><td class="date">10/05</td><td class="time">10:30</td><td class="incontro">Chisola - Virtus Calcio</td><td class="result">-</td></tr>
-                <tr><td class="date">10/05</td><td class="time">11:40</td><td class="incontro">Pro Eureka - PSG</td><td class="result">-</td></tr>
-                <tr><td class="date">16/05</td><td class="time">16:20</td><td class="incontro">Chisola - PSG</td><td class="result">-</td></tr>
-                <tr><td class="date">16/05</td><td class="time">17:30</td><td class="incontro">Pro Eureka - Virtus Calcio</td><td class="result">-</td></tr>
-            </tbody>
-        </table>
+    <!-- FASE FINALE -->
+    <h2>Fase Finale <span class="subtitle">- tempo unico da 25'</span></h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: left;">Partita</th>
+                <th>Data</th>
+                <th>Ora</th>
+                <th>Incontro</th>
+                <th class="result">Risultato</th>
+            </tr>
+        </thead>
+        <tbody id="bodyFinale"></tbody>
+    </table>
 
-        <div class="girone-header">GIRONE C</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Incontro</th>
-                    <th class="result">Risultato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result">-</td></tr>
-                <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result">-</td></tr>
-                <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result">-</td></tr>
-                <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result">-</td></tr>
-                <tr><td class="date">16/05</td><td class="time">18:00</td><td class="incontro">Volpiano - Cenisia</td><td class="result">-</td></tr>
-                <tr><td class="date">16/05</td><td class="time">19:10</td><td class="incontro">CBS - Borgaro</td><td class="result">-</td></tr>
-            </tbody>
-        </table>
-
-        <div class="meta">
-            <strong>Legenda 2ª Fase:</strong> 1A, 1B, 1C = primi classificati • MIGLIOR 2 = migliore secondo classificato
-        </div>
-
-        <!-- SECONDA FASE -->
-        <h2>Calendario 2ª Fase <span class="subtitle">- tempo unico da 25'</span></h2>
-
-        <div class="girone-header">GIRONE D</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Incontro</th>
-                    <th class="result">Risultato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">1A - 1C</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Pro Vercelli - 1A</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">1C - Torino</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - 1A</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">1C - Pro Vercelli</td><td class="result">-</td></tr>
-            </tbody>
-        </table>
-
-        <div class="girone-header">GIRONE E</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Incontro</th>
-                    <th class="result">Risultato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - Miglior 2°</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Juventus - 1B</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">Miglior 2° - 1B</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">1B - Bra</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">Miglior 2° - Juventus</td><td class="result">-</td></tr>
-            </tbody>
-        </table>
-
-        <!-- FASE FINALE -->
-        <h2>Fase Finale <span class="subtitle">- tempo unico da 25'</span></h2>
-        <table>
-            <thead>
-                <tr>
-                    <th style="text-align: left;">Partita</th>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Incontro</th>
-                    <th class="result">Risultato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="partita">G 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° D - 4° E</td><td class="result">-</td></tr>
-                <tr><td class="partita">G 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° E - 4° D</td><td class="result">-</td></tr>
-                <tr><td class="partita">G 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° D - 2° E</td><td class="result">-</td></tr>
-                <tr><td class="partita">G 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° E - 2° D</td><td class="result">-</td></tr>
-                <tr><td class="partita">Fin. 7°- 8°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Perd G 1 - Perd G 2</td><td class="result">2-0</td></tr>
-                <tr><td class="partita">Fin. 5°- 6°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Vinc G 1 - Vinc G 2</td><td class="result">-</td></tr>
-                <tr><td class="partita">Fin. 3°- 4°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Perd G 3 - Perd G 4</td><td class="result">-</td></tr>
-                <tr><td class="partita">Fin. 1°- 2°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Vinc G 3 - Vinc G 4</td><td class="result">-</td></tr>
-            </tbody>
-        </table>
-
-        <div class="meta" style="margin-top: 30px; font-size: 1.3rem;">
-            Premiazioni sul campo al termine
-        </div>
-
-        <div class="footer">
-            U.S.D. VANCHIGLIA 1915 – Sede e campo sportivo: Via Ernesto Ragazzoni 2, 10153 - Torino<br>
-            Tel. 011 282551 | segreteria@usdvanchiglia.it | P.E.C. info@pec.usdvanchiglia.it<br>
-            Matricola F.I.G.C. 81843 | P. IVA 03981710019 | Codice Fiscale 80101540013
-        </div>
+    <div class="meta" style="margin-top: 30px; font-size: 1.3rem;">
+        Premiazioni sul campo al termine
     </div>
+
+    <div class="footer">
+        U.S.D. VANCHIGLIA 1915 – Sede e campo sportivo: Via Ernesto Ragazzoni 2, 10153 - Torino<br>
+        Tel. 011 282551 | segreteria@usdvanchiglia.it | P.E.C. info@pec.usdvanchiglia.it<br>
+        Matricola F.I.G.C. 81843 | P. IVA 03981710019 | Codice Fiscale 80101540013
+    </div>
+</div>
+
+<script>
+// ==================== MEMORIAL DALLA RIVA – SCRIPT COMPLETO ====================
+
+function parseResult(str) {
+    if (!str || str === '-' || str === '') return null;
+    const parts = str.split('-');
+    const g1 = parseInt(parts[0]);
+    const g2 = parseInt(parts[1]);
+    return (!isNaN(g1) && !isNaN(g2)) ? [g1, g2] : null;
+}
+
+function raccogliRisultati(tableId) {
+    const partite = [];
+    document.querySelectorAll(`#${tableId} tbody tr`).forEach(row => {
+        const resultStr = row.cells[3].textContent.trim();
+        const result = parseResult(resultStr);
+        const text = row.cells[2].textContent.trim();
+        const parts = text.split(' - ');
+        if (parts.length === 2) {
+            partite.push({
+                team1: parts[0].trim(),
+                team2: parts[1].trim(),
+                result: result
+            });
+        }
+    });
+    return partite;
+}
+
+function tutteGiocate(partite) {
+    return partite.every(p => p.result !== null);
+}
+
+function calcolaClassificaGruppo(squadre, partite) {
+    const cl = {};
+    squadre.forEach(nome => {
+        cl[nome] = { nome, punti: 0, gf: 0, gs: 0, pg: 0 };
+    });
+
+    partite.forEach(p => {
+        if (!p.result) return;
+        const [g1, g2] = p.result;
+        const t1 = cl[p.team1];
+        const t2 = cl[p.team2];
+        if (!t1 || !t2) return;
+
+        t1.gf += g1; t1.gs += g2; t1.pg++;
+        t2.gf += g2; t2.gs += g1; t2.pg++;
+
+        if (g1 > g2)      { t1.punti += 3; }
+        else if (g2 > g1) { t2.punti += 3; }
+        else              { t1.punti += 1; t2.punti += 1; }
+    });
+
+    return Object.values(cl);
+}
+
+function ordinaClassifica(squadre, partite) {
+    const classifica = calcolaClassificaGruppo(squadre, partite);
+
+    classifica.sort((a, b) => {
+        // 1. Punti
+        if (b.punti !== a.punti) return b.punti - a.punti;
+
+        // 2. Scontro diretto (solo se sono esattamente in 2 a pari punti)
+        const pariPunti = classifica.filter(t => t.punti === a.punti).map(t => t.nome);
+        if (pariPunti.length === 2) {
+            const partiteDirette = partite.filter(p =>
+                pariPunti.includes(p.team1) && pariPunti.includes(p.team2)
+            );
+            const miniCl = calcolaClassificaGruppo(pariPunti, partiteDirette);
+            const ma = miniCl.find(t => t.nome === a.nome);
+            const mb = miniCl.find(t => t.nome === b.nome);
+            if (mb.punti !== ma.punti) return mb.punti - ma.punti;
+        }
+
+        // 3. Differenza reti
+        const drA = a.gf - a.gs;
+        const drB = b.gf - b.gs;
+        if (drB !== drA) return drB - drA;
+
+        // 4. Gol fatti
+        return b.gf - a.gf;
+    });
+
+    return classifica;
+}
+
+function trovaMigliorSecondo(clA, clB, clC) {
+    const secondi = [clA[1], clB[1], clC[1]];
+    secondi.sort((a, b) => {
+        if (b.punti !== a.punti) return b.punti - a.punti;
+        const drA = a.gf - a.gs;
+        const drB = b.gf - b.gs;
+        if (drB !== drA) return drB - drA;
+        return b.gf - a.gf;
+    });
+    return secondi[0].nome;
+}
+
+// Legge la classifica del Girone D o E direttamente dalle righe HTML già popolate
+function raccogliClassificaGirone(bodyId, squadre) {
+    const partite = [];
+    document.querySelectorAll(`#${bodyId} tr`).forEach(row => {
+        const resultStr = row.cells[3].textContent.trim();
+        const result = parseResult(resultStr);
+        const text = row.cells[2].textContent.trim();
+        const parts = text.split(' - ');
+        if (parts.length === 2) {
+            partite.push({
+                team1: parts[0].trim(),
+                team2: parts[1].trim(),
+                result: result
+            });
+        }
+    });
+
+    // Verifica che tutte le partite siano giocate
+    if (!tutteGiocate(partite)) return null;
+
+    return ordinaClassifica(squadre, partite);
+}
+
+function calcolaClassifiche() {
+    const squadreA = ["Vanchiglia", "Pro Collegno", "Mirafiori", "Sisport"];
+    const squadreB = ["Chisola", "Virtus Calcio", "PSG", "Pro Eureka"];
+    const squadreC = ["CBS", "Cenisia", "Borgaro", "Volpiano"];
+
+    const partiteA = raccogliRisultati("gironeA");
+    const partiteB = raccogliRisultati("gironeB");
+    const partiteC = raccogliRisultati("gironeC");
+
+    const aCompleto = tutteGiocate(partiteA);
+    const bCompleto = tutteGiocate(partiteB);
+    const cCompleto = tutteGiocate(partiteC);
+
+    let unoA = "1° A", unoB = "1° B", unoC = "1° C";
+    let miglior2 = "Miglior 2°";
+
+    if (aCompleto) unoA = ordinaClassifica(squadreA, partiteA)[0].nome;
+    if (bCompleto) unoB = ordinaClassifica(squadreB, partiteB)[0].nome;
+    if (cCompleto) unoC = ordinaClassifica(squadreC, partiteC)[0].nome;
+
+    if (aCompleto && bCompleto && cCompleto) {
+        const clA = ordinaClassifica(squadreA, partiteA);
+        const clB = ordinaClassifica(squadreB, partiteB);
+        const clC = ordinaClassifica(squadreC, partiteC);
+        miglior2 = trovaMigliorSecondo(clA, clB, clC);
+    }
+
+    // Girone D – sempre visibile
+    document.getElementById('bodyD').innerHTML = `
+        <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">${unoA} - ${unoC}</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Pro Vercelli - ${unoA}</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">${unoC} - Torino</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - ${unoA}</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">${unoC} - Pro Vercelli</td><td class="result">-</td></tr>
+    `;
+
+    // Girone E – sempre visibile
+    document.getElementById('bodyE').innerHTML = `
+        <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - ${miglior2}</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Juventus - ${unoB}</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">${miglior2} - ${unoB}</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">${unoB} - Bra</td><td class="result">-</td></tr>
+        <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">${miglior2} - Juventus</td><td class="result">-</td></tr>
+    `;
+
+    // ===== FASE FINALE =====
+    // Le squadre del Girone D ed E sono quelle effettivamente presenti nelle righe
+    // (che possono essere nomi reali o segnaposto, a seconda di quando siamo arrivati)
+    const squadreD = ["Pro Vercelli", "Torino", unoA, unoC];
+    const squadreE = ["Bra", "Juventus", unoB, miglior2];
+
+    const clD = raccogliClassificaGirone("bodyD", squadreD);
+    const clE = raccogliClassificaGirone("bodyE", squadreE);
+
+    // Segnaposto Fase Finale
+    let d1 = "1° D", d2 = "2° D", d3 = "3° D", d4 = "4° D";
+    let e1 = "1° E", e2 = "2° E", e3 = "3° E", e4 = "4° E";
+
+    if (clD) {
+        d1 = clD[0].nome;
+        d2 = clD[1].nome;
+        d3 = clD[2].nome;
+        d4 = clD[3].nome;
+    }
+    if (clE) {
+        e1 = clE[0].nome;
+        e2 = clE[1].nome;
+        e3 = clE[2].nome;
+        e4 = clE[3].nome;
+    }
+
+    // Fase Finale – sempre visibile, nomi reali appena i gironi D ed E sono completi
+    document.getElementById('bodyFinale').innerHTML = `
+        <tr><td class="partita">G 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">${d3} - ${e4}</td><td class="result">-</td></tr>
+        <tr><td class="partita">G 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">${e3} - ${d4}</td><td class="result">-</td></tr>
+        <tr><td class="partita">G 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">${d1} - ${e2}</td><td class="result">-</td></tr>
+        <tr><td class="partita">G 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">${e1} - ${d2}</td><td class="result">-</td></tr>
+        <tr><td class="partita">Fin. 7°- 8°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Perd G1 - Perd G2</td><td class="result">-</td></tr>
+        <tr><td class="partita">Fin. 5°- 6°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Vinc G1 - Vinc G2</td><td class="result">-</td></tr>
+        <tr><td class="partita">Fin. 3°- 4°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Perd G3 - Perd G4</td><td class="result">-</td></tr>
+        <tr><td class="partita">Fin. 1°- 2°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Vinc G3 - Vinc G4</td><td class="result">-</td></tr>
+    `;
+}
+
+window.onload = calcolaClassifiche;</script>
 </body>
 </html>
