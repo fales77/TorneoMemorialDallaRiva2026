@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8° Memorial Matteo Dalla Riva U12</title>
+    <style>
+        :root {
+            --granata: #9B1C2C;
+            --white: #ffffff;
+            --white-soft: #f0f0f0;
+            --white-muted: rgba(255,255,255,0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .topbar {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 18px 20px 22px;
+            background: var(--granata);
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .title {
+            text-align: center;
+            width: 100%;
+        }
+
+        .title h1 {
+            font-size: 1.55rem;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sub-main {
+            font-size: 1.05rem;
+            text-align: center;
+            color: var(--white-soft);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 16px 12px;
+        }
+
+        h2 {
+            color: var(--granata);
+            margin: 24px 0 12px;
+            font-size: 1.4rem;
+            border-left: 5px solid var(--granata);
+            padding-left: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        th {
+            background: var(--granata);
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 11px 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.97rem;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .girone-header {
+            background: #f0f0f0;
+            font-weight: bold;
+            color: var(--granata);
+            padding: 10px 12px;
+            margin-top: 8px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .meta {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 480px) {
+            .title h1 { font-size: 1.45rem; }
+            td, th { padding: 10px 6px; font-size: 0.92rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="title">
+            <h1>8° MEMORIAL MATTEO DALLA RIVA</h1>
+            <p class="sub-main">UNDER 12 (2014)</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h2>Gironi Prima Fase</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>GIRONE A</th>
+                    <th>GIRONE B</th>
+                    <th>GIRONE C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vanchiglia</td>
+                    <td>Chisola</td>
+                    <td>CBS</td>
+                </tr>
+                <tr>
+                    <td>Pro Collegno</td>
+                    <td>Virtus Calcio</td>
+                    <td>Cenisia</td>
+                </tr>
+                <tr>
+                    <td>Mirafiori</td>
+                    <td>PSG</td>
+                    <td>Borgaro</td>
+                </tr>
+                <tr>
+                    <td>Sisport</td>
+                    <td>Pro Eureka</td>
+                    <td>Volpiano</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Calendario Prima Fase</h2>
+
+        <!-- GIRONE A -->
+        <div class="girone-header">GIRONE A – Due tempi da 30'</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Squadra A</th>
+                    <th>Squadra B</th>
+                    <th>Risultato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>24/05</td><td>10:30</td><td>Vanchiglia</td><td>Pro Collegno</td><td></td></tr>
+                <tr><td>24/05</td><td>11:40</td><td>Sisport</td><td>Mirafiori</td><td></td></tr>
+                <tr><td>24/05</td><td>12:50</td><td>Sisport</td><td>Pro Collegno</td><td></td></tr>
+                <tr><td>25/05</td><td>14:00</td><td>Vanchiglia</td><td>Mirafiori</td><td></td></tr>
+                <tr><td>31/05</td><td>14:00</td><td>Pro Collegno</td><td>Mirafiori</td><td></td></tr>
+                <tr><td>31/05</td><td>15:10</td><td>Vanchiglia</td><td>Sisport</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <!-- GIRONE B -->
+        <div class="girone-header">GIRONE B – Due tempi da 30'</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Squadra A</th>
+                    <th>Squadra B</th>
+                    <th>Risultato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>24/05</td><td>10:30</td><td>Chisola</td><td>Pro Eureka</td><td></td></tr>
+                <tr><td>24/05</td><td>11:40</td><td>Virtus Calcio</td><td>PSG</td><td></td></tr>
+                <tr><td>25/05</td><td>10:30</td><td>Chisola</td><td>Virtus Calcio</td><td></td></tr>
+                <tr><td>25/05</td><td>11:40</td><td>Pro Eureka</td><td>PSG</td><td></td></tr>
+                <tr><td>31/05</td><td>16:20</td><td>Chisola</td><td>PSG</td><td></td></tr>
+                <tr><td>31/05</td><td>17:30</td><td>Pro Eureka</td><td>Virtus Calcio</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <!-- GIRONE C -->
+        <div class="girone-header">GIRONE C – Due tempi da 30'</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Squadra A</th>
+                    <th>Squadra B</th>
+                    <th>Risultato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>24/05</td><td>18:00</td><td>CBS</td><td>Cenisia</td><td></td></tr>
+                <tr><td>24/05</td><td>19:10</td><td>Borgaro</td><td>Volpiano</td><td></td></tr>
+                <tr><td>25/05</td><td>15:00</td><td>CBS</td><td>Volpiano</td><td></td></tr>
+                <tr><td>25/05</td><td>16:10</td><td>Borgaro</td><td>Cenisia</td><td></td></tr>
+                <tr><td>31/05</td><td>18:00</td><td>Volpiano</td><td>Cenisia</td><td></td></tr>
+                <tr><td>31/05</td><td>19:10</td><td>CBS</td><td>Borgaro</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="meta">
+            <strong>Legenda 2ª Fase:</strong> 1A, 1B, 1C = primi classificati<br>
+            MIGLIOR 2 = migliore secondo classificato
+        </div>
+
+        <h2>2ª Fase - Girone D</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Squadra A</th>
+                    <th>Squadra B</th>
+                    <th>Risultato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>01/06</td><td>10:00</td><td>1A</td><td>1C</td><td></td></tr>
+                <tr><td>01/06</td><td>10:30</td><td>Pro Vercelli</td><td>Torino</td><td></td></tr>
+                <tr><td>01/06</td><td>11:00</td><td>Pro Vercelli</td><td>1A</td><td></td></tr>
+                <tr><td>01/06</td><td>11:30</td><td>1C</td><td>Torino</td><td></td></tr>
+                <tr><td>01/06</td><td>12:00</td><td>Torino</td><td>1A</td><td></td></tr>
+                <tr><td>01/06</td><td>12:30</td><td>1C</td><td>Pro Vercelli</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2>2ª Fase - Girone E</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Squadra A</th>
+                    <th>Squadra B</th>
+                    <th>Risultato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>01/06</td><td>10:00</td><td>Bra</td><td>Miglior 2°</td><td></td></tr>
+                <tr><td>01/06</td><td>10:30</td><td>Juventus</td><td>1B</td><td></td></tr>
+                <tr><td>01/06</td><td>11:00</td><td>Juventus</td><td>Bra</td><td></td></tr>
+                <tr><td>01/06</td><td>11:30</td><td>Miglior 2°</td><td>1B</td><td></td></tr>
+                <tr><td>01/06</td><td>12:00</td><td>1B</td><td>Bra</td><td></td></tr>
+                <tr><td>01/06</td><td>12:30</td><td>Miglior 2°</td><td>Juventus</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2>Fase Finale</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Partita</th>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Squadra A</th>
+                    <th>Squadra B</th>
+                    <th>Risultato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Semifinale A</td><td>01/06</td><td>15:00</td><td>3° D</td><td>4° E</td><td></td></tr>
+                <tr><td>Semifinale B</td><td>01/06</td><td>15:00</td><td>3° E</td><td>4° D</td><td></td></tr>
+                <tr><td>Semifinale C</td><td>01/06</td><td>15:30</td><td>1° D</td><td>2° E</td><td></td></tr>
+                <tr><td>Semifinale D</td><td>01/06</td><td>15:30</td><td>1° E</td><td>2° D</td><td></td></tr>
+                <tr><td>5°-6° Posto</td><td>01/06</td><td>16:00</td><td>Vincente Sem. A</td><td>Vincente Sem. B</td><td></td></tr>
+                <tr><td>7°-8° Posto</td><td>01/06</td><td>16:00</td><td>Perdente Sem. A</td><td>Perdente Sem. B</td><td></td></tr>
+                <tr><td>3°-4° Posto</td><td>01/06</td><td>16:30</td><td>Perdente Sem. C</td><td>Perdente Sem. D</td><td></td></tr>
+                <tr><td>Finale 1°-2° Posto</td><td>01/06</td><td>16:30</td><td>Vincente Sem. C</td><td>Vincente Sem. D</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="meta" style="margin-top: 30px; font-size: 1rem;">
+            Premiazioni sul campo al termine della finale
+        </div>
+
+    </div>
+
+</body>
+</html>
