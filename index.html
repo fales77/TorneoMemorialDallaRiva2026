@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8° Memorial Matteo Dalla Riva U12</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
-    
-    <style>
+   
+<style>
     :root {
         --granata: #9B1C2C;
     }
-    * { 
-        margin: 0; 
-        padding: 0; 
-        box-sizing: border-box; 
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
     body {
         font-family: 'Segoe UI', system-ui, sans-serif;
@@ -102,38 +102,33 @@
         border-bottom: 1px solid #eee;
         font-size: 0.94rem;
     }
-
-    td.date, th.date { 
-        text-align: center; 
+    td.date, th.date {
+        text-align: center;
         width: 58px;
         padding: 6.5px 4px;
     }
-    td.time, th.time { 
-        text-align: center; 
+    td.time, th.time {
+        text-align: center;
         width: 52px;
         padding: 6.5px 4px;
     }
-    td.result, th.result { 
-        text-align: center; 
+    td.result, th.result {
+        text-align: center;
         width: 68px;
         padding: 6.5px 4px;
     }
-
-    .incontro { 
-        text-align: center; 
+    .incontro {
+        text-align: center;
         font-weight: 500;
         padding: 6.5px 6px;
     }
-
     td.partita {
         text-align: left;
         font-weight: 500;
     }
-
-    tr:nth-child(even) { 
-        background: #f9f9f9; 
+    tr:nth-child(even) {
+        background: #f9f9f9;
     }
-
     .girone-header {
         background: #f0f0f0;
         font-weight: bold;
@@ -142,12 +137,22 @@
         margin-top: 8px;
         border-radius: 8px 8px 0 0;
     }
-
     .meta {
         text-align: center;
         color: #666;
         font-size: 0.9rem;
         margin: 20px 0;
+    }
+
+    /* ====================== FOOTER ====================== */
+    .footer {
+        margin-top: 40px;
+        padding: 20px 10px 25px;
+        border-top: 2px solid var(--granata);
+        text-align: center;
+        font-size: 0.85rem;
+        color: #555;
+        line-height: 1.4;
     }
 
     /* ==================== MOBILE ==================== */
@@ -161,12 +166,9 @@
             line-height: 1.22;
             font-size: 0.90rem;
         }
-        td.date, td.time { 
-            width: 52px; 
-        }
-        td.result { 
-            width: 62px; 
-        }
+        td.date, td.time { width: 52px; }
+        td.result { width: 62px; }
+        .footer { font-size: 0.82rem; padding: 18px 8px; }
     }
 </style>
 </head>
@@ -181,7 +183,7 @@
     </div>
 
     <div class="container">
-        
+       
         <!-- TABELLA GIRONI -->
         <table class="gironi-table">
             <thead>
@@ -269,8 +271,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result">1-1</td></tr>
-                <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result">3-2</td></tr>
+                <tr><td class="date">09/05</td><td class="time">18:00</td><td class="incontro">CBS - Cenisia</td><td class="result">-</td></tr>
+                <tr><td class="date">09/05</td><td class="time">19:10</td><td class="incontro">Borgaro - Volpiano</td><td class="result">-</td></tr>
                 <tr><td class="date">10/05</td><td class="time">15:00</td><td class="incontro">CBS - Volpiano</td><td class="result">-</td></tr>
                 <tr><td class="date">10/05</td><td class="time">16:10</td><td class="incontro">Borgaro - Cenisia</td><td class="result">-</td></tr>
                 <tr><td class="date">16/05</td><td class="time">18:00</td><td class="incontro">Volpiano - Cenisia</td><td class="result">-</td></tr>
@@ -292,15 +294,15 @@
                     <th>Data</th>
                     <th>Ora</th>
                     <th>Incontro</th>
-                    <th>Risultato</th>
+                    <th class="result">Risultato</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">1A - 1C</td><td class="result">3-1</td></tr>
-                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">4-2</td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">1A - 1C</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">-</td></tr>
                 <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Pro Vercelli - 1A</td><td class="result">-</td></tr>
-                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">1C - Torino</td><td class="result">--</td></tr>
-                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - 1A</td><td class="result">--</td></tr>
+                <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">1C - Torino</td><td class="result">-</td></tr>
+                <tr><td class="date">17/05</td><td class="time">12:00</td><td class="incontro">Torino - 1A</td><td class="result">-</td></tr>
                 <tr><td class="date">17/05</td><td class="time">12:30</td><td class="incontro">1C - Pro Vercelli</td><td class="result">-</td></tr>
             </tbody>
         </table>
@@ -312,11 +314,11 @@
                     <th>Data</th>
                     <th>Ora</th>
                     <th>Incontro</th>
-                    <th>Risultato</th>
+                    <th class="result">Risultato</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - Miglior 2°</td><td class="result">3-2</td></tr>
+                <tr><td class="date">17/05</td><td class="time">10:00</td><td class="incontro">Bra - Miglior 2°</td><td class="result">-</td></tr>
                 <tr><td class="date">17/05</td><td class="time">10:30</td><td class="incontro">Juventus - 1B</td><td class="result">-</td></tr>
                 <tr><td class="date">17/05</td><td class="time">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
                 <tr><td class="date">17/05</td><td class="time">11:30</td><td class="incontro">Miglior 2° - 1B</td><td class="result">-</td></tr>
@@ -334,25 +336,30 @@
                     <th>Data</th>
                     <th>Ora</th>
                     <th>Incontro</th>
-                    <th>Risultato</th>
+                    <th class="result">Risultato</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="partita">Gara 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° D - 4° E</td><td class="result">5-2</td></tr>
-                <tr><td class="partita">Gara 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° E - 4° D</td><td class="result">6-2</td></tr>
-                <tr><td class="partita">Gara 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° D - 2° E</td><td class="result">-</td></tr>
-                <tr><td class="partita">Gara 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° E - 2° D</td><td class="result">-</td></tr>
-                <tr><td class="partita">Finale 7°- 8° Posto</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Perdente Gara 1 - Perdente Gara 2</td><td class="result">2-0</td></tr>
-                <tr><td class="partita">Finale 5°- 6° Posto</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Vincente Gara 1 - Vincente Gara 2</td><td class="result">-</td></tr>
-                <tr><td class="partita">Finale 3°- 4° Posto</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Perdente Gara 3 - Perdente Gara 4</td><td class="result">-</td></tr>
-                <tr><td class="partita">Finale 1°- 2° Posto</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Vincente Gara 3 - Vincente Gara 4</td><td class="result">-</td></tr>
+                <tr><td class="partita">G 1</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° D - 4° E</td><td class="result">-</td></tr>
+                <tr><td class="partita">G 2</td><td class="date">17/05</td><td class="time">15:00</td><td class="incontro">3° E - 4° D</td><td class="result">-</td></tr>
+                <tr><td class="partita">G 3</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° D - 2° E</td><td class="result">-</td></tr>
+                <tr><td class="partita">G 4</td><td class="date">17/05</td><td class="time">15:30</td><td class="incontro">1° E - 2° D</td><td class="result">-</td></tr>
+                <tr><td class="partita">Fin. 7°- 8°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Perd G 1 - Perd G 2</td><td class="result">2-0</td></tr>
+                <tr><td class="partita">Fin. 5°- 6°</td><td class="date">17/05</td><td class="time">16:00</td><td class="incontro">Vinc G 1 - Vinc G 2</td><td class="result">-</td></tr>
+                <tr><td class="partita">Fin. 3°- 4°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Perd G 3 - Perd G 4</td><td class="result">-</td></tr>
+                <tr><td class="partita">Fin. 1°- 2°</td><td class="date">17/05</td><td class="time">16:30</td><td class="incontro">Vinc G 3 - Vinc G 4</td><td class="result">-</td></tr>
             </tbody>
         </table>
 
-        <div class="meta" style="margin-top: 30px; font-size: 1rem;">
-            Premiazioni sul campo al termine della finale
+        <div class="meta" style="margin-top: 30px; font-size: 1.3rem;">
+            Premiazioni sul campo al termine
         </div>
 
+        <div class="footer">
+            U.S.D. VANCHIGLIA 1915 – Sede e campo sportivo: Via Ernesto Ragazzoni 2, 10153 - Torino<br>
+            Tel. 011 282551 | segreteria@usdvanchiglia.it | P.E.C. info@pec.usdvanchiglia.it<br>
+            Matricola F.I.G.C. 81843 | P. IVA 03981710019 | Codice Fiscale 80101540013
+        </div>
     </div>
 </body>
 </html>
