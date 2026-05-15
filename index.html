@@ -71,23 +71,25 @@
             text-align: center;
             font-size: 0.95rem;
         }
-        /* Allineamento specifico per le colonne */
-        th.result, td.result { 
-            text-align: center; 
-            width: 80px;           /* larghezza fissa per coerenza */
-        }
         td {
-            padding: 8px 8px;
+            padding: 8px 6px;           /* ridotto leggermente */
             border-bottom: 1px solid #eee;
-            font-size: 0.96rem;
+            font-size: 0.95rem;
         }
         td.date, td.time { 
             text-align: center; 
-            width: 70px;
+            width: 68px;
         }
         .incontro { 
             text-align: center; 
-            font-weight: 500; 
+            font-weight: 500;
+            white-space: nowrap;        /* ← Importante: impedisce il ritorno a capo */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        td.result { 
+            text-align: center; 
+            width: 75px;
         }
         td.partita {
             text-align: left;
@@ -102,7 +104,6 @@
         }
         .gironi-table td {
             padding: 9px 8px;
-            vertical-align: top;
             text-align: center;
         }
 
@@ -121,6 +122,22 @@
             color: #666;
             font-size: 0.9rem;
             margin: 20px 0;
+        }
+
+        /* ==================== MOBILE ==================== */
+        @media (max-width: 480px) {
+            td {
+                padding: 7px 5px;
+                font-size: 0.93rem;
+            }
+            .incontro {
+                white-space: normal;           /* su mobile molto stretto permette wrapping */
+                font-size: 0.92rem;
+                line-height: 1.25;
+            }
+            td.date, td.time { 
+                width: 60px;
+            }
         }
     </style>
 </head>
