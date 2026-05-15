@@ -7,139 +7,168 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
     
     <style>
-        :root {
-            --granata: #9B1C2C;
-            --white: #ffffff;
-            --white-soft: #f0f0f0;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.5;
-        }
-        .topbar {
-            padding: 18px 20px 22px;
-            background: var(--granata);
-            color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .title { text-align: center; }
-        .title h1 {
-            font-size: 1.55rem;
-            line-height: 1.1;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        .sub-main {
-            font-size: 1.05rem;
-            color: var(--white-soft);
-            font-weight: 500;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 16px 12px;
-        }
-        h2 {
-            color: var(--granata);
-            margin: 28px 0 12px;
-            font-size: 1.45rem;
-            border-left: 5px solid var(--granata);
-            padding-left: 12px;
-        }
-        h2 .subtitle {
-            font-size: 0.72rem;
-            font-weight: normal;
-            opacity: 0.9;
-        }
+    :root {
+        --granata: #9B1C2C;
+    }
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+    }
+    body {
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.5;
+    }
+    .topbar {
+        padding: 18px 20px 22px;
+        background: var(--granata);
+        color: white;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .title { text-align: center; }
+    .title h1 {
+        font-size: 1.55rem;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+    .sub-main {
+        font-size: 1.05rem;
+        color: #f0f0f0;
+        font-weight: 500;
+    }
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 16px 10px;
+    }
+    h2 {
+        color: var(--granata);
+        margin: 26px 0 10px;
+        font-size: 1.45rem;
+        border-left: 5px solid var(--granata);
+        padding-left: 12px;
+    }
+    h2 .subtitle {
+        font-size: 0.72rem;
+        font-weight: normal;
+        opacity: 0.9;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+    /* ====================== TABELLA GIRONI ====================== */
+    .gironi-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .gironi-table th {
+        background: var(--granata);
+        color: white;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 1.05rem;
+    }
+    .gironi-table td {
+        padding: 9px 8px;
+        text-align: center;
+        vertical-align: top;
+        font-size: 0.97rem;
+    }
+
+    /* ====================== TABELLE CALENDARIO ====================== */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    th {
+        background: var(--granata);
+        color: white;
+        padding: 9px 6px;
+        text-align: center;
+        font-size: 0.93rem;
+    }
+    td {
+        padding: 6.5px 5px;
+        border-bottom: 1px solid #eee;
+        font-size: 0.94rem;
+    }
+
+    td.date, th.date { 
+        text-align: center; 
+        width: 58px;
+        padding: 6.5px 4px;
+    }
+    td.time, th.time { 
+        text-align: center; 
+        width: 52px;
+        padding: 6.5px 4px;
+    }
+    td.result, th.result { 
+        text-align: center; 
+        width: 68px;
+        padding: 6.5px 4px;
+    }
+
+    .incontro { 
+        text-align: center; 
+        font-weight: 500;
+        padding: 6.5px 6px;
+    }
+
+    td.partita {
+        text-align: left;
+        font-weight: 500;
+    }
+
+    tr:nth-child(even) { 
+        background: #f9f9f9; 
+    }
+
+    .girone-header {
+        background: #f0f0f0;
+        font-weight: bold;
+        color: var(--granata);
+        padding: 9px 12px;
+        margin-top: 8px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .meta {
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+        margin: 20px 0;
+    }
+
+    /* ==================== MOBILE ==================== */
+    @media (max-width: 480px) {
+        td, th {
+            padding: 5.5px 4px;
+            font-size: 0.91rem;
         }
-        th {
-            background: var(--granata);
-            color: white;
-            padding: 10px 8px;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        td {
-            padding: 8px 6px;           /* ridotto leggermente */
-            border-bottom: 1px solid #eee;
-            font-size: 0.95rem;
+        .incontro {
+            white-space: normal;
+            line-height: 1.22;
+            font-size: 0.90rem;
         }
         td.date, td.time { 
-            text-align: center; 
-            width: 68px;
-        }
-        .incontro { 
-            text-align: center; 
-            font-weight: 500;
-            white-space: nowrap;        /* ← Importante: impedisce il ritorno a capo */
-            overflow: hidden;
-            text-overflow: ellipsis;
+            width: 52px; 
         }
         td.result { 
-            text-align: center; 
-            width: 75px;
+            width: 62px; 
         }
-        td.partita {
-            text-align: left;
-            font-weight: 500;
-        }
-
-        /* Tabella Gironi iniziali */
-        .gironi-table th {
-            background: var(--granata);
-            padding: 12px 8px;
-            font-size: 1.05rem;
-        }
-        .gironi-table td {
-            padding: 9px 8px;
-            text-align: center;
-        }
-
-        tr:nth-child(even) { background: #f9f9f9; }
-
-        .girone-header {
-            background: #f0f0f0;
-            font-weight: bold;
-            color: var(--granata);
-            padding: 10px 12px;
-            margin-top: 8px;
-            border-radius: 8px 8px 0 0;
-        }
-        .meta {
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            margin: 20px 0;
-        }
-
-        /* ==================== MOBILE ==================== */
-        @media (max-width: 480px) {
-            td {
-                padding: 7px 5px;
-                font-size: 0.93rem;
-            }
-            .incontro {
-                white-space: normal;           /* su mobile molto stretto permette wrapping */
-                font-size: 0.92rem;
-                line-height: 1.25;
-            }
-            td.date, td.time { 
-                width: 60px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
