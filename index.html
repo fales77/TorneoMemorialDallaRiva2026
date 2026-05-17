@@ -370,7 +370,7 @@ function calcolaClassifiche() {
 
     // Girone D – senza colonna Data (0=Ora, 1=Incontro, 2=Risultato)
     document.getElementById('bodyD').innerHTML = `
-        <tr><td class="time-only">10:00</td><td class="incontro">${unoA} - ${unoC}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">10:00</td><td class="incontro">${unoA} - ${unoC}</td><td class="result">0-1</td></tr>
         <tr><td class="time-only">10:30</td><td class="incontro">Pro Vercelli - Torino</td><td class="result">-</td></tr>
         <tr><td class="time-only">11:00</td><td class="incontro">Pro Vercelli - ${unoA}</td><td class="result">-</td></tr>
         <tr><td class="time-only">11:30</td><td class="incontro">${unoC} - Torino</td><td class="result">-</td></tr>
@@ -380,7 +380,7 @@ function calcolaClassifiche() {
 
     // Girone E – senza colonna Data
     document.getElementById('bodyE').innerHTML = `
-        <tr><td class="time-only">10:00</td><td class="incontro">Bra - ${miglior2}</td><td class="result">-</td></tr>
+        <tr><td class="time-only">10:00</td><td class="incontro">Bra - ${miglior2}</td><td class="result">0-3</td></tr>
         <tr><td class="time-only">10:30</td><td class="incontro">Juventus - ${unoB}</td><td class="result">-</td></tr>
         <tr><td class="time-only">11:00</td><td class="incontro">Juventus - Bra</td><td class="result">-</td></tr>
         <tr><td class="time-only">11:30</td><td class="incontro">${miglior2} - ${unoB}</td><td class="result">-</td></tr>
